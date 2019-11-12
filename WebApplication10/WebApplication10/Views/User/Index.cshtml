@@ -1,0 +1,39 @@
+﻿@model System.Collections.Generic.IEnumerable<WebApplication10.ViewModels.UserViewModel>
+
+@{
+    ViewBag.Title = "List users";
+}
+
+<h2>List users</h2>
+
+<table>
+    <thead>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.UserName)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </td>
+            <td>
+                Action
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var model in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => model.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => model.CreationDate.ToShortDateString())
+                </td>
+                <td>
+                    @Html.ActionLink("All jobs", "Index", "Jobs")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
